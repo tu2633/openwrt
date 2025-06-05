@@ -15,13 +15,6 @@ Once the credentials are provided, the script creates the interface and assigns 
 **Assumption:** The script assumes `eth1` is the WAN interface. You may need to adjust this based on your hardware setup.
 
 
-## Note:
-To ensure all script's are executable, run the following command:
-```bash
-chmod +x SCRIPT_FILE_PATH
-```
-
-
 ## 🌐 tailscale-throughput-fix.sh
 This script addresses throughput limitations caused by the default Linux configuration of the WAN interface (e.g., `pppoe-wan`). It applies specific network optimizations by running the following command as a hotplug script when the WAN interface comes up, with a 2-second delay:
 
@@ -29,3 +22,10 @@ This script addresses throughput limitations caused by the default Linux configu
 ethtool -K pppoe-wan rx-udp-gro-forwarding on rx-gro-list off
 ```
 **Note:** Create the file `/etc/hotplug.d/iface/99-ethtool-pppoe` and paste the contents of `tailscale-throughput-fix`
+
+
+## ⚠️ Note:
+To ensure all script's are executable, run the following command:
+```bash
+chmod +x SCRIPT_FILE_PATH
+```
