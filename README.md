@@ -12,3 +12,9 @@ This script is used to resolve any throughput limitations due to the initial lin
 ```bash
 chmod +x /etc/hotplug.d/iface/99-ethtool-pppoe
 ```
+## 🔌create-ppoe-wan.sh
+This bash script makes alot of assumptions on the openwrt interface configuration. However, on execution the user will be presented with the option to enter their PPOE `username` and `password` credentials for the WAN interface.
+
+Upon submission the interface will be created and assigned to the already-existent `wan` firewall.
+
+`eth1`: assumed to be the WAN interface
