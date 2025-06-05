@@ -2,11 +2,11 @@
 
 This repository contains a collection of scripts designed to simplify and automate common tasks when setting up a fresh installation of OpenWrt. These scripts are tailored for my personal use, and your experience may vary based on your specific setup. You will likely need to modify elements such as interface names, SD card mount points, or other configuration details to suit your environment.
 
-## 💾 expand-sd-card.sh
+## 💾 expand-sd-card.sh (Direct Execution)
 This script automates the process of expanding an SD card to utilize its full capacity. It handles the entire procedure from start to finish, making it easy to maximize storage on your OpenWrt device.
 
 
-## 🔌 create-pppoe-wan.sh
+## 🔌 create-pppoe-wan.sh (Direct Execution)
 This bash script simplifies the creation of a PPPoE WAN interface. It makes certain assumptions about the OpenWrt interface configuration, but during execution, it prompts the user to input their PPPoE `username` and `password` for the WAN connection.
 
 Once the credentials are provided, the script creates the interface and assigns it to the pre-existing `wan` firewall zone.
@@ -15,7 +15,7 @@ Once the credentials are provided, the script creates the interface and assigns 
 **Assumption:** The script assumes `eth1` is the WAN interface. You may need to adjust this based on your hardware setup.
 
 
-## 🌐 tailscale-throughput-fix.sh
+## 🌐 tailscale-throughput-fix.sh (Hotplug Script - Scheduled)
 This script addresses throughput limitations caused by the default Linux configuration of the WAN interface (e.g., `pppoe-wan`). It applies specific network optimizations by running the following command as a hotplug script when the WAN interface comes up, with a 2-second delay:
 
 ```bash
