@@ -12,14 +12,18 @@ This script addresses throughput limitations caused by the default Linux configu
 ethtool -K pppoe-wan rx-udp-gro-forwarding on rx-gro-list off
 ```
 
-**Note:** To ensure the script is executable, run the following command:
-```bash
-chmod +x /etc/hotplug.d/iface/99-ethtool-pppoe
-```
-
 ## 🔌 create-pppoe-wan.sh
 This bash script simplifies the creation of a PPPoE WAN interface. It makes certain assumptions about the OpenWrt interface configuration, but during execution, it prompts the user to input their PPPoE `username` and `password` for the WAN connection.
 
 Once the credentials are provided, the script creates the interface and assigns it to the pre-existing `wan` firewall zone.
 
+**Note:** Create the file `/etc/hotplug.d/iface/99-ethtool-pppoe` and paste the contents of `create-pppoe-wan.sh`
+
 **Assumption:** The script assumes `eth1` is the WAN interface. You may need to adjust this based on your hardware setup.
+
+
+## Note:
+To ensure all script's are executable, run the following command:
+```bash
+chmod +x SCRIPT_FILE_PATH
+```
