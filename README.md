@@ -8,6 +8,8 @@ This script is used to expand the sd card to it's full capacity and automating t
 ## 🌐 tailscale-throughput-fix.sh
 This script is used to resolve any throughput limitations due to the initial linux configuration of the WAN interface e.g, `ppoe-wan`
 
+Runs `ethtool -K ppoe-wan rx-udp-gro-forwarding on rx-gro-list off` as a hotplug on the interface coming up with a delay of 2 seconds.
+
 **IMPORTANT:** To ensure the script is executable, ensure that the following command is ran:
 ```bash
 chmod +x /etc/hotplug.d/iface/99-ethtool-pppoe
